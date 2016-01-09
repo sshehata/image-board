@@ -7,6 +7,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @photo = Photo.create(params[:photo])
   end
 
   def update
