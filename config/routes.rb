@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'photos#index'
 
+  resources :users, only: :show do
+    resources :photos, except: [:index, :edit, :new]
+  end
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

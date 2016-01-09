@@ -1,0 +1,33 @@
+<div id='content'>
+  <div id='images'>
+    <h4> <%= pluralize(@user.photos.length, 'image') %> </h4>
+    <% if @user.photos.empty? %>
+      <p> You have no photos yet! Upoad your first photo to get started. </p>
+    <% else %>
+      <% @user.photos.each do |photo| %>
+        <%= image_tag photo.image.url(:thumb) %>
+      <% end %>
+    <% end %>
+  </div>
+  <div id='upload'>
+    <h4> Upload new image </h4>
+    <%= form_for([@user, @new_photo], html: { multipart: true }) do |f| %>
+
+      <% if @new_photo.errors.any? %>
+        <div class='errors'>
+            <% @new_photo.errors.full_messages.each do |msg| %>
+              <p>- <%= msg %></p>
+            <% end %>
+        </div>
+      <% end %>
+
+      <p>
+      <%= f.label 'Image' %><br />
+      <%= f.file_field :image %>
+      </p>
+
+      <%= f.submit 'Upload' %>
+
+    <% end %>
+  </div>
+</div>

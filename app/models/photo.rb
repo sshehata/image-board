@@ -3,6 +3,8 @@ class Photo < ActiveRecord::Base
 
   has_attached_file :image, styles: {medium: '400x400', thumb: '100x100' },
     url: '/assets/images/:id/:style/:basename.:extension'
-  validates_attachement_presence :image
-  validates_attachement_content_type :image, content_type: ['image/jpeg', 'image/png']
+  validates_attachment_presence :image
+  validates_attachment_content_type :image, content_type: ['image/jpeg', 'image/png']
+
+  validates :user, presence: true
 end
