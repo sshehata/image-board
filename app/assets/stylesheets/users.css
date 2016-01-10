@@ -3,6 +3,8 @@
   margin: 85px;
   border-style: groove;
   min-height: 350px;
+  min-width: 1160px;
+  overflow: auto;
 }
 
 #upload {
@@ -10,7 +12,7 @@
   background: #f0f0f0;
   margin: 20px;
   width: 250px;
-  float: right;
+  float: left;
   min-height: 200px;
 }
 

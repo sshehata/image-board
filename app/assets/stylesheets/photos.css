@@ -8,6 +8,7 @@
   margin: 10% 20% 0%;
   background: white;
   border-style: groove;
+  min-width: 650px;
 }
 
 .timestamp {

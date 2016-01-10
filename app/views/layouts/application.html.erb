@@ -9,6 +9,7 @@
 <body>
 
   <div id='top-bar'>
+    <%= link_to 'home', root_path, class: 'barred' %>
     <% if user_signed_in? %>
       <%= link_to current_user.email, current_user, class: 'barred'%>
       <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
