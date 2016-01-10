@@ -22,7 +22,16 @@
 
 #gallery {
   background: white;
-  margin: 85px;
+  margin: 10% 20% 0%;
   border-style: groove;
   padding: 70px;
+}
+
+.comment-area {
+  width: 50%;
+}
+
+.commenter {
+  color: blue;
+  font-size: 12px;
 }

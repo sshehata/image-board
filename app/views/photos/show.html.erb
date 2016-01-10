@@ -1,7 +1,27 @@
 <div id='image-strip'>
+  <% if @photo.user == current_user %>
   <%= button_to 'delete', photo_path(@photo), method: :delete, class: 'delete-button' %>
-  <h2><%= @photo.title %></h2>
-  <p class='timestamp'>uploaded <%= distance_of_time_in_words(@photo.uploaded_on, Time.now) %></p>
+<% end %>
+<h2>
+  <%= @photo.title %><br/>
+  <span class='timestamp'>uploaded <%= distance_of_time_in_words(@photo.uploaded_on, Time.now) %></span>
+</h2>
   <%= image_tag @photo.image.url(:medium), class: 'image-panel' %>
   <p class='timestamp'><%= pluralize(@photo.views, 'views')%></p>
+
+  <%= form_for [@photo, @photo.comments.new] do |f| %>
+    <p>
+    <span class='commenter'><%= current_user.email %></span><br/>
+    <%= f.text_area :text, placeholder: 'Leave a comment...', class: 'comment-area' %>
+    </p>
+    <%= f.submit 'Comment' %>
+  <% end %>
+
+  <hr/>
+  <% @photo.comments.all.each do |comment| %>
+    <p >
+    <span class='commenter'><%= comment.user.email %></span><br/>
+    <span class='comment'><%= comment.text %></span>
+    </p>
+  <% end %>
 </div>

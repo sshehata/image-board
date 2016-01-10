@@ -23,3 +23,13 @@ body {
   color: red;
 
 }
+
+#top-bar {
+  width:110%;
+  background: white;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  border-bottom: solid 2px;
+  min-height: 50px;
+}

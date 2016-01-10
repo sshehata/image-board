@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :photos, only: :create
   end
 
-  resources :photos, only: [:show, :destroy]
+  resources :photos, only: [:show, :destroy] do
+    resources :comments, only: :create
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

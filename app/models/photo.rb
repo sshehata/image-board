@@ -1,5 +1,6 @@
 class Photo < ActiveRecord::Base
   belongs_to :user
+  has_many :comments
 
   has_attached_file :image, styles: {medium: '640x320', thumb: '100x100' },
     url: '/assets/images/:id/:style/:basename.:extension'
