@@ -31,5 +31,11 @@ body {
   top: 0px;
   position: absolute;
   border-bottom: solid 2px;
-  min-height: 50px;
+  padding: 10px;
+  min-height: 30px;
+}
+
+.barred {
+  border-right: solid 1px;
+  padding-right: 10px;
 }

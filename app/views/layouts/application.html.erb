@@ -9,6 +9,13 @@
 <body>
 
   <div id='top-bar'>
+    <% if user_signed_in? %>
+      <%= link_to current_user.email, current_user, class: 'barred'%>
+      <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to 'sign in', new_user_session_path, class: 'barred' %> 
+      <%= link_to 'sign up', new_user_registration_path %>
+    <% end %>
   </div>
 
   <p class="notice"><%= notice %></p>
