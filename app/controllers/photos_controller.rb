@@ -2,10 +2,7 @@ class PhotosController < ApplicationController
   before_action :authenticate_user!, only: :create
 
   def index
-  end
-
-  def load_images
-    @photos = Photo.order(:views).find_in_batches(start: params[:start], batch_size: 10)
+    @photos = Photo.order(:views)
   end
 
   def create
@@ -18,11 +15,19 @@ class PhotosController < ApplicationController
     end
   end
 
-  def update
+  def show
+    @photo = Photo.find(params[:id])
+    @photo.views = @photo.views + 1
+    @photo.save
+  end
+
+  def destroy
+    Photo.find(params[:id]).destroy
+    redirect_to current_user
   end
 
   private
     def photo_params
-      params.require(:photo).permit(:image)
+      params.require(:photo).permit(:image, :title)
     end
 end

@@ -1,0 +1,7 @@
+<div id='image-strip'>
+  <%= button_to 'delete', photo_path(@photo), method: :delete, class: 'delete-button' %>
+  <h2><%= @photo.title %></h2>
+  <p class='timestamp'>uploaded <%= distance_of_time_in_words(@photo.uploaded_on, Time.now) %></p>
+  <%= image_tag @photo.image.url(:medium), class: 'image-panel' %>
+  <p class='timestamp'><%= pluralize(@photo.views, 'views')%></p>
+</div>

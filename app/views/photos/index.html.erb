@@ -1,2 +1,17 @@
-<h1> Landing Page </h1>
+<div id='gallery'>
+    <% if @photos.empty? %>
 
+      <p> There are no photos yet! come back later or 
+        <% if user_signed_in? %>
+          <%= link_to 'click here', current_user %> to upload your own. </p> 
+    <% else %>
+      <%= link_to 'login', new_user_session %> to upload your own. </p> 
+    <% end %>
+    <% else %>
+      <% @photos.each do |photo| %>
+        <%= link_to photo, class: 'thumbnail' do %>
+          <%= image_tag photo.image.url(:thumb) %>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>

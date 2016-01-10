@@ -1,0 +1,28 @@
+.image-panel {
+  width: 640px;
+  height: 320px;
+}
+
+#image-strip {
+  padding: 2% 5% 5% 5%;
+  margin: 10% 20% 0%;
+  background: white;
+  border-style: groove;
+}
+
+.timestamp {
+  font-size: 13px;
+  color: #555555;
+  font-weight: bold;
+}
+
+.delete-button {
+  float: right;
+}
+
+#gallery {
+  background: white;
+  margin: 85px;
+  border-style: groove;
+  padding: 70px;
+}

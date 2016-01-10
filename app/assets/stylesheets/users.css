@@ -22,3 +22,7 @@
   width: 750px;
   min-height: 100px;
 }
+
+.thumbnail {
+  text-decoration: none;
+}

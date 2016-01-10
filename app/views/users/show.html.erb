@@ -5,7 +5,9 @@
       <p> You have no photos yet! Upoad your first photo to get started. </p>
     <% else %>
       <% @user.photos.each do |photo| %>
-        <%= image_tag photo.image.url(:thumb) %>
+        <%= link_to photo, class: 'thumbnail' do %>
+          <%= image_tag photo.image.url(:thumb) %>
+        <% end %>
       <% end %>
     <% end %>
   </div>
@@ -20,6 +22,11 @@
             <% end %>
         </div>
       <% end %>
+
+      <p>
+      <%= f.label 'Title' %><br />
+      <%= f.text_field :title %>
+      </p>
 
       <p>
       <%= f.label 'Image' %><br />
